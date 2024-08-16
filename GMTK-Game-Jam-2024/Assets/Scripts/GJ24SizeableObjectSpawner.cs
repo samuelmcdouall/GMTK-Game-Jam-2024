@@ -13,7 +13,7 @@ public class GJ24SizeableObjectSpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _spawnIntervalTimer = _spawnInterval;
+        _spawnIntervalTimer = 0.0f;
     }
 
     // Update is called once per frame
