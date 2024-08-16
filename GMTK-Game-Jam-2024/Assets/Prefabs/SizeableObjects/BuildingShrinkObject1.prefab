@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 9073631788473415507}
   - component: {fileID: 1208133098791269266}
   - component: {fileID: 2272615270582326209}
+  - component: {fileID: 6179859537673834150}
   m_Layer: 0
   m_Name: BuildingShrinkObject1
   m_TagString: ShrinkObject
@@ -130,7 +131,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _bottomPoint: {fileID: 1923250761154983148}
-  _speed: 10
+  _speed: 15
+  _targetSizeStep: -2
+  _currentSizeStep: 0
 --- !u!65 &2272615270582326209
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -152,3 +155,21 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 16.229427, y: 19.239717, z: 12.664908}
   m_Center: {x: -0.00013637543, y: 9.619859, z: 0.05764866}
+--- !u!114 &6179859537673834150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3742295897095089276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 1, g: 0, b: 0, a: 1}
+  outlineWidth: 2
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []

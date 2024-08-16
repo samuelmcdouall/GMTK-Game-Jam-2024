@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4415915810868927831}
   - component: {fileID: 6288429298404494102}
   - component: {fileID: 6978781667435516058}
+  - component: {fileID: 1830293040485935820}
   m_Layer: 0
   m_Name: FireHydrantGrowObject
   m_TagString: GrowObject
@@ -120,7 +121,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _bottomPoint: {fileID: 3926720316527788359}
-  _speed: 10
+  _speed: 15
+  _targetSizeStep: 3
+  _currentSizeStep: 0
+--- !u!114 &1830293040485935820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5819326455754156916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 0, g: 0, b: 1, a: 1}
+  outlineWidth: 2
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &8997587178505419496
 GameObject:
   m_ObjectHideFlags: 0

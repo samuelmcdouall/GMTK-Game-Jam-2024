@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2805936360116976821}
   - component: {fileID: 1075139492533663438}
   - component: {fileID: 33388967898484811}
+  - component: {fileID: -7949024515032425087}
   m_Layer: 0
   m_Name: TestShrinkObject
   m_TagString: ShrinkObject
@@ -120,7 +121,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _bottomPoint: {fileID: 1376623939262150444}
-  _speed: 10
+  _speed: 15
+  _targetSizeStep: 0
+  _currentSizeStep: 0
+--- !u!114 &-7949024515032425087
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 40844293284076715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 1, g: 0, b: 0, a: 1}
+  outlineWidth: 2
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &774450680374463891
 GameObject:
   m_ObjectHideFlags: 0

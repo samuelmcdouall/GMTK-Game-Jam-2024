@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6056895420638068963}
   - component: {fileID: 5280146214746543359}
   - component: {fileID: 7164138508409991954}
+  - component: {fileID: -2980504442358579471}
   m_Layer: 0
   m_Name: CarGrowObject
   m_TagString: GrowObject
@@ -120,7 +121,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _bottomPoint: {fileID: 2357710414184272839}
-  _speed: 10
+  _speed: 15
+  _targetSizeStep: 2
+  _currentSizeStep: 0
+--- !u!114 &-2980504442358579471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1229999218450613849}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 0, g: 0, b: 1, a: 1}
+  outlineWidth: 2
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &6667623972391501679
 GameObject:
   m_ObjectHideFlags: 0
