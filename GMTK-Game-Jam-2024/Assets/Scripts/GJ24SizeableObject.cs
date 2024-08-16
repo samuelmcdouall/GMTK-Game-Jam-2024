@@ -11,10 +11,17 @@ public class GJ24SizeableObject : MonoBehaviour
     [SerializeField]
     float _speed;
     float _edgeOfViewableScreen = -200.0f;
+    [SerializeField]
+    float _targetSizeStep;
+    [SerializeField]
+    float _currentSizeStep;
+
+    Outline _outline;
     // Start is called before the first frame update
     void Start()
     {
         _groundLevel = GameObject.FindGameObjectWithTag("GroundLevel").transform.position.y;
+        _outline = GetComponent<Outline>();
     }
 
     // Update is called once per frame
@@ -34,10 +41,20 @@ public class GJ24SizeableObject : MonoBehaviour
     public void GrowObject()
     {
         transform.localScale *= 2.0f;
+        _currentSizeStep++;
+        if (_currentSizeStep >= _targetSizeStep && gameObject.tag == "GrowObject") 
+        {
+            _outline.OutlineColor = Color.green;
+        }
     }
     public void ShrinkObject()
     {
         transform.localScale /= 2.0f;
+        _currentSizeStep--;
+        if (_currentSizeStep <= _targetSizeStep && gameObject.tag == "ShrinkObject")
+        {
+            _outline.OutlineColor = Color.green;
+        }
     }
 
     private void OnTriggerEnter(Collider other)
