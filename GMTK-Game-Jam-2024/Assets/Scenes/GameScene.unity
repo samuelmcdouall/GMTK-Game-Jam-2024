@@ -221,7 +221,7 @@ Transform:
   m_GameObject: {fileID: 396983068}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 153.86, y: -38.5, z: 100}
+  m_LocalPosition: {x: 91.8, y: -38.5, z: 100}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -509,7 +509,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60
+  field of view: 43.79
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -815,11 +815,34 @@ Transform:
   m_Children: []
   m_Father: {fileID: 742500771}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1882921792 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8142563510270830693, guid: b2d98361d51be934a8c22c1199995a21, type: 3}
+  m_PrefabInstance: {fileID: 7852037407512441902}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1883015008 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4199557743355718182, guid: b2d98361d51be934a8c22c1199995a21, type: 3}
   m_PrefabInstance: {fileID: 7852037407512441902}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1883015010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1882921792}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 0, g: 0.2369988, b: 1, a: 1}
+  outlineWidth: 2
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &1939601506
 GameObject:
   m_ObjectHideFlags: 0
@@ -2208,7 +2231,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8142563510270830693, guid: b2d98361d51be934a8c22c1199995a21, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1883015010}
   m_SourcePrefab: {fileID: 100100000, guid: b2d98361d51be934a8c22c1199995a21, type: 3}
 --- !u!33 &7918503021082162816
 MeshFilter:
@@ -2318,6 +2344,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _bottomPoint: {fileID: 973880755}
   _speed: 10
+  _targetSizeStep: 0
+  _currentSizeStep: 0
 --- !u!65 &8285693761011375718
 BoxCollider:
   m_ObjectHideFlags: 0
