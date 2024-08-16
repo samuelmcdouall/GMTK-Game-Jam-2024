@@ -140,6 +140,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _bottomPoint: {fileID: 1894040045}
+  _speed: 10
 --- !u!1 &258234467
 GameObject:
   m_ObjectHideFlags: 0
@@ -472,7 +473,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 973880755}
-  - component: {fileID: 973880756}
   m_Layer: 0
   m_Name: BasePoint
   m_TagString: Untagged
@@ -495,18 +495,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4995451887127876033}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &973880756
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 973880754}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0043440adb2247c459663938837c8d83, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1013630066
 GameObject:
   m_ObjectHideFlags: 0
@@ -601,6 +589,8 @@ GameObject:
   - component: {fileID: 1457284115}
   - component: {fileID: 1457284116}
   - component: {fileID: 1457284117}
+  - component: {fileID: 1457284118}
+  - component: {fileID: 1457284119}
   m_Layer: 0
   m_Name: PlayerShip
   m_TagString: Player
@@ -661,8 +651,56 @@ MonoBehaviour:
   _shrinkProjectile: {fileID: 6381724558100245878, guid: 580aa64d2bb072c41a0e544364a06d33, type: 3}
   _growProjectile: {fileID: 3921828829827123153, guid: f29c7724e25521044b5e0b10bcd1b1ef, type: 3}
   _shrinkGrowProjectile: {fileID: 0}
-  _fireCooldown: 1
+  _fireCooldown: 0.25
   _firePos: {fileID: 258234468}
+--- !u!65 &1457284118
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1457284114}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 10.5, y: 14.3, z: 10.5}
+  m_Center: {x: 0, y: -3.29, z: 0}
+--- !u!54 &1457284119
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1457284114}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 0
 --- !u!1 &1778027230
 GameObject:
   m_ObjectHideFlags: 0
@@ -1069,7 +1107,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5558264972015644269, guid: 5445a611ffa7ab947abfd836bf5200b9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -58.28
+      value: 93.94
       objectReference: {fileID: 0}
     - target: {fileID: 5558264972015644269, guid: 5445a611ffa7ab947abfd836bf5200b9, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1385,7 +1423,7 @@ Transform:
   m_GameObject: {fileID: 5627451876921281403}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -35.92, z: 100}
+  m_LocalPosition: {x: 167.1, y: -35.92, z: 100}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -1853,6 +1891,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _bottomPoint: {fileID: 973880755}
+  _speed: 10
 --- !u!65 &8285693761011375718
 BoxCollider:
   m_ObjectHideFlags: 0
