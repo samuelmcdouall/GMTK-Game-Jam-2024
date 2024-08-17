@@ -31,10 +31,10 @@ public class GJ24SizeableObjectSpawner : MonoBehaviour
                 //rand = 12;
                 if (rand <= _spawnableObjects.Count - 1)
                 {
-                    if (rand == _spawnableObjects.Count - 1)// tank spawns
+                    if (rand == _spawnableObjects.Count - 1 && _levelManager.CurrentLevel <= 2)// tank spawns
                     {
-                        int tankRand = Random.Range(0, 3); // only 1/3 chance to spawn tank if chosen, otherwise do someting else
-                        if (tankRand != 0)
+                        int tankRand = Random.Range(0, 4 - _levelManager.CurrentLevel); // only 1/3 chance on level 1, 1/2 level 2, 100% level 3 onwards to spawn tank if chosen, otherwise spawn someting else
+                        if (tankRand > 0)
                         {
                             rand -= Random.Range(1, _spawnableObjects.Count);
                         }

@@ -6,8 +6,7 @@ using UnityEngine;
 public class GJ24LevelManager : MonoBehaviour
 {
     // Start is called before the first frame update
-    [SerializeField] 
-    int _currentLevel;
+    public int CurrentLevel;
     public int RequiredScore; // Progress by 100, 200, 300, 400, 500, then +250 onwards
     [SerializeField]
     float _currentLevelDuration;
@@ -37,7 +36,7 @@ public class GJ24LevelManager : MonoBehaviour
         _currentLevelTimer = _currentLevelDuration;
         NewLevelShowing = true;
         _newLevelShowingTimer = _newLevelShowingInterval;
-        _levelIntroText.text = $"Level {_currentLevel} \nScore Needed: {RequiredScore}";
+        _levelIntroText.text = $"Level {CurrentLevel} \nScore Needed: {RequiredScore}";
         _levelIntroText.gameObject.SetActive(true);
         _currentLevelText.gameObject.SetActive(false);
         //_requiredScoreText.gameObject.SetActive(false);
@@ -59,7 +58,7 @@ public class GJ24LevelManager : MonoBehaviour
                     _newLevelShowingTimer = _newLevelShowingInterval;
                     _levelIntroText.gameObject.SetActive(false);
                     _currentLevelText.gameObject.SetActive(true);
-                    _currentLevelText.text = $"Level {_currentLevel}";
+                    _currentLevelText.text = $"Level {CurrentLevel}";
                     //_requiredScoreText.gameObject.SetActive(true);
                     //_requiredScoreText.text = $"/ {RequiredScore}";
                     _timerText.gameObject.SetActive(true);
@@ -80,7 +79,7 @@ public class GJ24LevelManager : MonoBehaviour
                         NewLevelShowing = true;
                         _currentLevelTimer = _currentLevelDuration;
                         _levelIntroText.gameObject.SetActive(true);
-                        _currentLevel++;
+                        CurrentLevel++;
                         if (RequiredScore <= 400)
                         {
                             RequiredScore += 100;
@@ -89,7 +88,7 @@ public class GJ24LevelManager : MonoBehaviour
                         {
                             RequiredScore += 250;
                         }
-                        _levelIntroText.text = $"Level {_currentLevel} \nScore Needed: {RequiredScore}";
+                        _levelIntroText.text = $"Level {CurrentLevel} \nScore Needed: {RequiredScore}";
                         _currentLevelText.gameObject.SetActive(false);
                         //_requiredScoreText.gameObject.SetActive(false);
                         _timerText.gameObject.SetActive(false);

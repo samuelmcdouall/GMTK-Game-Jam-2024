@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 1865229241524493524}
   - component: {fileID: 9063517130913735851}
   - component: {fileID: 6280636433569390594}
-  - component: {fileID: 6851293249887468316}
   m_Layer: 0
   m_Name: TankShield
   m_TagString: Untagged
@@ -84,27 +83,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &6851293249887468316
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1470027714325483019}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2830988063798631586
 GameObject:
   m_ObjectHideFlags: 0
@@ -285,6 +263,7 @@ GameObject:
   - component: {fileID: 8695661397750801179}
   - component: {fileID: 7320586382544307110}
   - component: {fileID: 5633540567625560617}
+  - component: {fileID: 5265276699524458215}
   m_Layer: 0
   m_Name: TankHazard
   m_TagString: Untagged
@@ -376,6 +355,27 @@ MonoBehaviour:
   _tankGun: {fileID: 4337067949527233095}
   _tankFirePoint: {fileID: 8741842187185923280}
   _tankProjectile: {fileID: 5344374421523546162, guid: 680154a1de2aed6438efac6f3184e8f0, type: 3}
+--- !u!135 &5265276699524458215
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6299574393371672385}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 4.54
+  m_Center: {x: -0.00000017881398, y: 1.1374743, z: -0.01}
 --- !u!1 &8712409040243424166
 GameObject:
   m_ObjectHideFlags: 0

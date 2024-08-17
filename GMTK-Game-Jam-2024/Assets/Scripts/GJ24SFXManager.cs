@@ -11,6 +11,7 @@ public class GJ24SFXManager : MonoBehaviour
     public AudioSource MusicAS;
     [SerializeField]
     List<AudioClip> _musicTracks;
+    public float SFXVolume;
 
     void Start()
     {
@@ -21,6 +22,6 @@ public class GJ24SFXManager : MonoBehaviour
     public void PlaySound(AudioClip clip, float pitch)
     {
         _playerFireAS.pitch = pitch;
-        _playerFireAS.PlayOneShot(clip, 0.5f);
+        _playerFireAS.PlayOneShot(clip, SFXVolume);
     }
 }

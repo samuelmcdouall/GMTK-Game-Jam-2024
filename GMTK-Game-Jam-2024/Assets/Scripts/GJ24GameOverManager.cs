@@ -35,16 +35,16 @@ public class GJ24GameOverManager : MonoBehaviour
             Instantiate(_explosionFX, _player.transform.position, Quaternion.identity);
             _sfxManager.PlaySound(_explosionSFX, 1.0f);
             _sfxManager.MusicAS.Stop();
-            string middleline = "X";
+            string reason = "X";
             if (destroyed)
             {
-                middleline = "You were destroyed";
+                reason = "You were destroyed";
             }
             else
             {
-                middleline = "You ran out of time";
+                reason = "You ran out of time";
             }
-            _gameOverText.text = $"Game over!\n\n{middleline}\n\nTry Again?";
+            _gameOverText.text = $"{reason}\n\nTry Again?";
             Invoke("ShowGameOverScreen", 2.0f);
             Destroy(_player);
         }
