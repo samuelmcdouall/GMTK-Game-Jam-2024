@@ -12,6 +12,7 @@ TagManager:
   - ShrinkGrowProjectile
   - GroundLevel
   - TankShield
+  - ScoreManager
   layers:
   - Default
   - TransparentFX
