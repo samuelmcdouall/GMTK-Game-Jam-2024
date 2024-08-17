@@ -22,7 +22,6 @@ public class GJ24SizeableObjectSpawner : MonoBehaviour
         if (_spawnIntervalTimer < 0.0f)
         {
             _spawnIntervalTimer = _spawnInterval;
-            print("Attempt spawn!");
             int rand = Random.Range(0, _spawnableObjects.Count + 1); // This is to give spawning nothing an option
             if (rand <= _spawnableObjects.Count - 1)
             {
