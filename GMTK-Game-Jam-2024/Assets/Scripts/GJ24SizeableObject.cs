@@ -20,6 +20,7 @@ public class GJ24SizeableObject : MonoBehaviour
     [SerializeField]
     Transform _scoreTextObjectPos;
 
+    GameObject _scoreManagerObject;
     GJ24ScoreManager _scoreManager;
     GJ24GameOverManager _gameOverManager;
 
@@ -28,7 +29,8 @@ public class GJ24SizeableObject : MonoBehaviour
     void Start()
     {
         _groundLevel = GameObject.FindGameObjectWithTag("GroundLevel").transform.position.y;
-        _scoreManager = GameObject.FindGameObjectWithTag("ScoreManager").GetComponent<GJ24ScoreManager>();
+        _scoreManagerObject = GameObject.FindGameObjectWithTag("ScoreManager");
+        _scoreManager = _scoreManagerObject.GetComponent<GJ24ScoreManager>();
         _gameOverManager = GameObject.FindGameObjectWithTag("GameOverManager").GetComponent<GJ24GameOverManager>();
         _outline = GetComponent<Outline>();
     }
@@ -88,7 +90,7 @@ public class GJ24SizeableObject : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            _gameOverManager.TriggerGameOver();
+            _gameOverManager.TriggerGameOver(true);
         }
     }
 }

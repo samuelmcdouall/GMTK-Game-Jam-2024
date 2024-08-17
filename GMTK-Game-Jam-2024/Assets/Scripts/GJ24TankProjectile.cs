@@ -24,7 +24,7 @@ public class GJ24TankProjectile : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            _gameOverManager.TriggerGameOver();
+            _gameOverManager.TriggerGameOver(true);
             Destroy(gameObject);
         }
     }

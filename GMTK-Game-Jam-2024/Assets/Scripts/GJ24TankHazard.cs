@@ -50,7 +50,7 @@ public class GJ24TankHazard : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            _gameOverManager.TriggerGameOver();
+            _gameOverManager.TriggerGameOver(true);
         }
     }
 }

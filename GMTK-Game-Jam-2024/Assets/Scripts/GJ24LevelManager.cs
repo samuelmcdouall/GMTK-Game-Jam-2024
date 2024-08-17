@@ -97,7 +97,7 @@ public class GJ24LevelManager : MonoBehaviour
                     else
                     {
                         print("NOT ENOUGH POINTS");
-                        _gameOverManager.TriggerGameOver();
+                        _gameOverManager.TriggerGameOver(false);
 
                     }
                 }
