@@ -25,6 +25,14 @@ public class GJ24SizeableObjectSpawner : MonoBehaviour
             int rand = Random.Range(0, _spawnableObjects.Count + 1); // This is to give spawning nothing an option
             if (rand <= _spawnableObjects.Count - 1)
             {
+                if (rand == _spawnableObjects.Count - 1)// tank spawns
+                {
+                    int tankRand = Random.Range(0, 3); // only 1/3 chance to spawn tank if chosen, otherwise do someting else
+                    if (tankRand != 0)
+                    {
+                        rand -= Random.Range(1, _spawnableObjects.Count);
+                    }
+                }
                 Instantiate(_spawnableObjects[rand], transform.position, _spawnableObjects[rand].transform.rotation);
             }
         }
