@@ -124,7 +124,7 @@ MonoBehaviour:
   Speed: 15
   TargetSizeStep: 3
   CurrentSizeStep: 0
-  ScoreValue: 15
+  ScoreValue: 30
 --- !u!114 &1830293040485935820
 MonoBehaviour:
   m_ObjectHideFlags: 0

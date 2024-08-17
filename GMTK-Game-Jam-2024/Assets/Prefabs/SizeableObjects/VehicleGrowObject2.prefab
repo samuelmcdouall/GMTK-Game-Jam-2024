@@ -103,7 +103,7 @@ MonoBehaviour:
   Speed: 15
   TargetSizeStep: 1
   CurrentSizeStep: 0
-  ScoreValue: 5
+  ScoreValue: 10
 --- !u!65 &8022711575083987682
 BoxCollider:
   m_ObjectHideFlags: 0
