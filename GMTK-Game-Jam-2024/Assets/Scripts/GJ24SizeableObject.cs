@@ -14,28 +14,33 @@ public class GJ24SizeableObject : MonoBehaviour
     public int CurrentSizeStep;
     public int ScoreValue;
 
-    [System.NonSerialized] public GJ24ScoreManager ScoreManager;
+    GJ24ScoreManager _scoreManager;
+    GJ24GameOverManager _gameOverManager;
 
     Outline _outline;
     // Start is called before the first frame update
     void Start()
     {
         _groundLevel = GameObject.FindGameObjectWithTag("GroundLevel").transform.position.y;
-        ScoreManager = GameObject.FindGameObjectWithTag("ScoreManager").GetComponent<GJ24ScoreManager>();
+        _scoreManager = GameObject.FindGameObjectWithTag("ScoreManager").GetComponent<GJ24ScoreManager>();
+        _gameOverManager = GameObject.FindGameObjectWithTag("GameOverManager").GetComponent<GJ24GameOverManager>();
         _outline = GetComponent<Outline>();
     }
 
     // Update is called once per frame
     public virtual void Update()
     {
-        transform.position += Vector3.left * Speed * Time.deltaTime;
-        if (Mathf.Abs(_bottomPoint.transform.position.y - _groundLevel) > 0.1f)
+        if (!_gameOverManager.GameOver)
         {
-            transform.position += new Vector3(0.0f, _groundLevel - _bottomPoint.transform.position.y, 0.0f);
-        }
-        if (transform.position.x < EdgeOfViewableScreen)
-        {
-            Destroy(gameObject);
+            transform.position += Vector3.left * Speed * Time.deltaTime;
+            if (Mathf.Abs(_bottomPoint.transform.position.y - _groundLevel) > 0.1f)
+            {
+                transform.position += new Vector3(0.0f, _groundLevel - _bottomPoint.transform.position.y, 0.0f);
+            }
+            if (transform.position.x < EdgeOfViewableScreen)
+            {
+                Destroy(gameObject);
+            }
         }
     }
 
@@ -50,7 +55,7 @@ public class GJ24SizeableObject : MonoBehaviour
             {
                 _outline.OutlineColor = Color.green;
             }
-            ScoreManager.IncreaseScore(ScoreValue, false);
+            _scoreManager.IncreaseScore(ScoreValue, false);
         }
     }
     public void ShrinkObject()
@@ -63,7 +68,7 @@ public class GJ24SizeableObject : MonoBehaviour
             {
                 _outline.OutlineColor = Color.green;
             }
-            ScoreManager.IncreaseScore(ScoreValue, true);
+            _scoreManager.IncreaseScore(ScoreValue, true);
         }
     }
 
@@ -71,8 +76,7 @@ public class GJ24SizeableObject : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            print("GAME OVER");
-            Time.timeScale = 0.0f;
+            _gameOverManager.TriggerGameOver();
         }
     }
 }

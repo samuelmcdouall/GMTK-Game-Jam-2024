@@ -10,11 +10,13 @@ public class GJ24TankProjectile : MonoBehaviour
     float _speed;
     [System.NonSerialized]
     public Vector3 Direction;
+    private GJ24GameOverManager _gameOverManager;
 
     void Start()
     {
         _projectileRB = GetComponent<Rigidbody>();
         _projectileRB.velocity = Direction * _speed;
+        _gameOverManager = GameObject.FindGameObjectWithTag("GameOverManager").GetComponent<GJ24GameOverManager>();
         Destroy(gameObject, 20.0f); // so not floating on forever
     }
 
@@ -22,7 +24,7 @@ public class GJ24TankProjectile : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            Time.timeScale = 0.0f;
+            _gameOverManager.TriggerGameOver();
             Destroy(gameObject);
         }
     }

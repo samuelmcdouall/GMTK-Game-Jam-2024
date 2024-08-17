@@ -8,6 +8,7 @@ public class GJ24SFXManager : MonoBehaviour
     AudioSource _playerFireAS;
     [SerializeField]
     AudioClip _playerFireClip;
+    public AudioSource MusicAS;
     
     public void PlaySound(AudioClip clip, float pitch)
     {

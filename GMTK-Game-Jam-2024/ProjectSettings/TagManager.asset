@@ -13,6 +13,8 @@ TagManager:
   - GroundLevel
   - TankShield
   - ScoreManager
+  - FxTemporaire
+  - GameOverManager
   layers:
   - Default
   - TransparentFX
