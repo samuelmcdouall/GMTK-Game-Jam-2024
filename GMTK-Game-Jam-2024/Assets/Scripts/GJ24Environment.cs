@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GJ24Cloud : MonoBehaviour
+public class GJ24Environment : MonoBehaviour
 {
     [SerializeField]
     float _speed;
