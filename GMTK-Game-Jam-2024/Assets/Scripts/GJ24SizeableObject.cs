@@ -8,31 +8,32 @@ public class GJ24SizeableObject : MonoBehaviour
     [SerializeField]
     Transform _bottomPoint;
     float _groundLevel;
-    [SerializeField]
-    float _speed;
-    float _edgeOfViewableScreen = -200.0f;
-    [SerializeField]
-    float _targetSizeStep;
-    [SerializeField]
-    float _currentSizeStep;
+    public float Speed;
+    [System.NonSerialized] public float EdgeOfViewableScreen = -200.0f;
+    public int TargetSizeStep;
+    public int CurrentSizeStep;
+    public int ScoreValue;
+
+    [System.NonSerialized] public GJ24ScoreManager ScoreManager;
 
     Outline _outline;
     // Start is called before the first frame update
     void Start()
     {
         _groundLevel = GameObject.FindGameObjectWithTag("GroundLevel").transform.position.y;
+        ScoreManager = GameObject.FindGameObjectWithTag("ScoreManager").GetComponent<GJ24ScoreManager>();
         _outline = GetComponent<Outline>();
     }
 
     // Update is called once per frame
-    void Update()
+    public virtual void Update()
     {
-        transform.position += Vector3.left * _speed * Time.deltaTime;
+        transform.position += Vector3.left * Speed * Time.deltaTime;
         if (Mathf.Abs(_bottomPoint.transform.position.y - _groundLevel) > 0.1f)
         {
             transform.position += new Vector3(0.0f, _groundLevel - _bottomPoint.transform.position.y, 0.0f);
         }
-        if (transform.position.x < _edgeOfViewableScreen)
+        if (transform.position.x < EdgeOfViewableScreen)
         {
             Destroy(gameObject);
         }
@@ -41,23 +42,31 @@ public class GJ24SizeableObject : MonoBehaviour
     public void GrowObject()
     {
         transform.localScale *= 2.0f;
-        _currentSizeStep++;
-        if (_currentSizeStep >= _targetSizeStep && gameObject.tag == "GrowObject") 
+        CurrentSizeStep++;
+        if (CurrentSizeStep >= TargetSizeStep && gameObject.tag == "GrowObject") 
         {
-            _outline.OutlineColor = Color.green;
+            if (_outline)
+            {
+                _outline.OutlineColor = Color.green;
+            }
+            ScoreManager.IncreaseScore(ScoreValue, false);
         }
     }
     public void ShrinkObject()
     {
         transform.localScale /= 2.0f;
-        _currentSizeStep--;
-        if (_currentSizeStep <= _targetSizeStep && gameObject.tag == "ShrinkObject")
+        CurrentSizeStep--;
+        if (CurrentSizeStep <= TargetSizeStep && gameObject.tag == "ShrinkObject")
         {
-            _outline.OutlineColor = Color.green;
+            if (_outline)
+            {
+                _outline.OutlineColor = Color.green;
+            }
+            ScoreManager.IncreaseScore(ScoreValue, true);
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    public void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
         {

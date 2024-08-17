@@ -1,33 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class GJ24PlaneHazard : MonoBehaviour
+public class GJ24PlaneHazard : GJ24SizeableObject
 {
-    [SerializeField]
-    float _speed;
-    float _edgeOfViewableScreen = -200.0f;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    //public override void Start()
+    //{
+    //    base.Start();
+    //}
 
     // Update is called once per frame
-    void Update()
+    public override void Update()
     {
-        transform.position += Vector3.left * _speed * Time.deltaTime;
-        if (transform.position.x < _edgeOfViewableScreen)
+        transform.position += Vector3.left * Speed * Time.deltaTime;
+        if (transform.position.x < EdgeOfViewableScreen)
         {
             Destroy(gameObject);
-        }
-    }
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.tag == "Player")
-        {
-            print("GAME OVER");
-            Time.timeScale = 0.0f;
         }
     }
 }

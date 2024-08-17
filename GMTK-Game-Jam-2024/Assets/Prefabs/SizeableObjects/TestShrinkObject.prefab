@@ -121,9 +121,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _bottomPoint: {fileID: 1376623939262150444}
-  _speed: 15
-  _targetSizeStep: 0
-  _currentSizeStep: 0
+  Speed: 15
+  TargetSizeStep: 0
+  CurrentSizeStep: 0
+  ScoreValue: 0
 --- !u!114 &-7949024515032425087
 MonoBehaviour:
   m_ObjectHideFlags: 0
