@@ -35,6 +35,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6773719830149472664}
+  - {fileID: 8679594302944143577}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!33 &7890669556899037746
@@ -104,6 +105,8 @@ MonoBehaviour:
   TargetSizeStep: 1
   CurrentSizeStep: 0
   ScoreValue: 10
+  _scoreTextObject: {fileID: 2455494766040761642, guid: 6eee1b927d411d84f98dad7be44c7157, type: 3}
+  _scoreTextObjectPos: {fileID: 8679594302944143577}
 --- !u!65 &6365263481710626538
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -143,6 +146,37 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
+--- !u!1 &2283066879425175350
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8679594302944143577}
+  m_Layer: 0
+  m_Name: ScoreSpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8679594302944143577
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2283066879425175350}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 5.77, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8037161613357786890}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3451467887574681409
 GameObject:
   m_ObjectHideFlags: 0

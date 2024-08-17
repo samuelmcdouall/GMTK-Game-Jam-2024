@@ -8,9 +8,11 @@ public class GJ24ScoreManager : MonoBehaviour
     [SerializeField] TMP_Text _scoreText;
     [SerializeField] TMP_Text _numShrunkObjectsText;
     [SerializeField] TMP_Text _numGrownObjectsText;
-    [SerializeField] int _score;
+    public int Score;
     [SerializeField] int _numShrunkObjects;
     [SerializeField] int _numGrownObjects;
+    [SerializeField]
+    GJ24LevelManager _levelManager;
 
     // Start is called before the first frame update
     void Start()
@@ -26,7 +28,7 @@ public class GJ24ScoreManager : MonoBehaviour
 
     public void IncreaseScore(int score, bool shrunkObject)
     {
-        _score += score;
+        Score += score;
         if (shrunkObject)
         {
             _numShrunkObjects++;
@@ -39,7 +41,7 @@ public class GJ24ScoreManager : MonoBehaviour
     }
     void UpdateText()
     {
-        _scoreText.text = "Score: " + _score;
+        _scoreText.text = $"Score: {Score} / {_levelManager.RequiredScore}";
         _numShrunkObjectsText.text = "Shrunk objects: " + _numShrunkObjects;
         _numGrownObjectsText.text = "Grown objects: " + _numGrownObjects;
     }

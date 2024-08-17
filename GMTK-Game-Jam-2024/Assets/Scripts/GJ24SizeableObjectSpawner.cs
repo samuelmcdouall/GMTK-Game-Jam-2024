@@ -10,6 +10,8 @@ public class GJ24SizeableObjectSpawner : MonoBehaviour
     private GJ24GameOverManager _gameOverManager;
     [SerializeField]
     List<GameObject> _spawnableObjects;
+    [SerializeField]
+    GJ24LevelManager _levelManager;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,12 +22,13 @@ public class GJ24SizeableObjectSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!_gameOverManager.GameOver)
+        if (!_gameOverManager.GameOver && !_levelManager.NewLevelShowing)
         {
             if (_spawnIntervalTimer < 0.0f)
             {
                 _spawnIntervalTimer = _spawnInterval;
                 int rand = Random.Range(0, _spawnableObjects.Count + 1); // This is to give spawning nothing an option
+                //rand = 12;
                 if (rand <= _spawnableObjects.Count - 1)
                 {
                     if (rand == _spawnableObjects.Count - 1)// tank spawns

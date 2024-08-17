@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class GJ24SizeableObject : MonoBehaviour
@@ -12,7 +13,12 @@ public class GJ24SizeableObject : MonoBehaviour
     [System.NonSerialized] public float EdgeOfViewableScreen = -200.0f;
     public int TargetSizeStep;
     public int CurrentSizeStep;
+    bool _metTargetSize;
     public int ScoreValue;
+    [SerializeField]
+    GameObject _scoreTextObject;
+    [SerializeField]
+    Transform _scoreTextObjectPos;
 
     GJ24ScoreManager _scoreManager;
     GJ24GameOverManager _gameOverManager;
@@ -49,12 +55,15 @@ public class GJ24SizeableObject : MonoBehaviour
         transform.localScale *= 2.0f;
         CurrentSizeStep++;
 
-        if (CurrentSizeStep >= TargetSizeStep && gameObject.tag == "GrowObject") 
+        if (CurrentSizeStep >= TargetSizeStep && gameObject.tag == "GrowObject" && !_metTargetSize) 
         {
+            _metTargetSize = true;
             if (_outline)
             {
                 _outline.OutlineColor = Color.green;
             }
+            GameObject scoreText = Instantiate(_scoreTextObject, _scoreTextObjectPos.position, _scoreTextObject.transform.rotation);
+            scoreText.GetComponent<TMP_Text>().text = "+" + ScoreValue + "!";
             _scoreManager.IncreaseScore(ScoreValue, false);
         }
     }
@@ -62,12 +71,15 @@ public class GJ24SizeableObject : MonoBehaviour
     {
         transform.localScale /= 2.0f;
         CurrentSizeStep--;
-        if (CurrentSizeStep <= TargetSizeStep && gameObject.tag == "ShrinkObject")
+        if (CurrentSizeStep <= TargetSizeStep && gameObject.tag == "ShrinkObject" && !_metTargetSize)
         {
+            _metTargetSize = true;
             if (_outline)
             {
                 _outline.OutlineColor = Color.green;
             }
+            GameObject scoreText = Instantiate(_scoreTextObject, _scoreTextObjectPos.position, _scoreTextObject.transform.rotation);
+            scoreText.GetComponent<TMP_Text>().text = "+" + ScoreValue + "!";
             _scoreManager.IncreaseScore(ScoreValue, true);
         }
     }
