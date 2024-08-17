@@ -27,6 +27,11 @@ public class GJ24PlayerShooting : MonoBehaviour
     float _fireCooldownTimer;
     [SerializeField]
     Transform _firePos;
+
+    [SerializeField]
+    GJ24SFXManager _sfxManager;
+    [SerializeField]
+    AudioClip _fireClip;
     void Start()
     {
         _fireCooldownTimer = _fireCooldown;
@@ -57,9 +62,11 @@ public class GJ24PlayerShooting : MonoBehaviour
             {
                 case GunSetting.Shrink:
                     Instantiate(_shrinkProjectile, _firePos.position, Quaternion.identity);
+                    _sfxManager.PlaySound(_fireClip, 1.2f);
                     break;
                 case GunSetting.Grow:
                     Instantiate(_growProjectile, _firePos.position, Quaternion.identity);
+                    _sfxManager.PlaySound(_fireClip, 0.8f);
                     break;
                 default:
                     Instantiate(_shrinkGrowProjectile, _firePos.position, Quaternion.identity);

@@ -10,11 +10,15 @@ public class GJ24PlayerProjectile : MonoBehaviour
     float _speed;
     [SerializeField]
     ProjectileType _projectileType;
+    [SerializeField]
+    AudioClip _collideClip;
+    GJ24SFXManager _sfxManager;
 
     void Start()
     {
         _projectileRB = GetComponent<Rigidbody>();
         _projectileRB.velocity = Vector3.down * _speed;
+        _sfxManager = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<GJ24SFXManager>();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -28,10 +32,12 @@ public class GJ24PlayerProjectile : MonoBehaviour
             if (_projectileType == ProjectileType.Grow)
             {
                 other.gameObject.GetComponent<GJ24SizeableObject>().GrowObject();
+                _sfxManager.PlaySound(_collideClip, 0.8f);
             }
             else if (_projectileType == ProjectileType.Shrink)
             {
                 other.gameObject.GetComponent<GJ24SizeableObject>().ShrinkObject();
+                _sfxManager.PlaySound(_collideClip, 1.2f);
             }
         }
         else if (other.tag == "GrowObject")
@@ -39,10 +45,12 @@ public class GJ24PlayerProjectile : MonoBehaviour
             if (_projectileType == ProjectileType.Grow)
             {
                 other.gameObject.GetComponent<GJ24SizeableObject>().GrowObject();
+                _sfxManager.PlaySound(_collideClip, 0.8f);
             }
             if (_projectileType == ProjectileType.Shrink)
             {
                 other.gameObject.GetComponent<GJ24SizeableObject>().ShrinkObject();
+                _sfxManager.PlaySound(_collideClip, 1.2f);
             }
         }
         Destroy(gameObject);

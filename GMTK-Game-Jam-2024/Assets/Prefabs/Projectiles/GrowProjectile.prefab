@@ -127,6 +127,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _speed: 20
   _projectileType: 1
+  _collideClip: {fileID: 8300000, guid: 5ff5bd936a30a904da907f35c8dd382e, type: 3}
 --- !u!135 &5571078244885155255
 SphereCollider:
   m_ObjectHideFlags: 0

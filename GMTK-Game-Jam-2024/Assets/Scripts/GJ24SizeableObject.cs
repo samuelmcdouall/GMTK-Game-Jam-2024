@@ -43,6 +43,7 @@ public class GJ24SizeableObject : MonoBehaviour
     {
         transform.localScale *= 2.0f;
         CurrentSizeStep++;
+
         if (CurrentSizeStep >= TargetSizeStep && gameObject.tag == "GrowObject") 
         {
             if (_outline)
