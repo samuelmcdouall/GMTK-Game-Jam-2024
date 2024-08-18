@@ -1,20 +1,15 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
 public class GJ24LevelManager : MonoBehaviour
 {
-    // Start is called before the first frame update
     public int CurrentLevel;
-    public int RequiredScore; // Progress by 100, 200, 300, 400, 500, then +250 onwards
+    public int RequiredScore; // Progress by 100, 200, 300, 400, 500, 750, 1000, 1250, 1500, 2000, +500 onwards
     [SerializeField]
     float _currentLevelDuration;
     [SerializeField]
     float _currentLevelTimer;
     public TMP_Text CurrentLevelText;
-    //[SerializeField]
-    //TMP_Text _requiredScoreText;
     public TMP_Text TimerText;
     public TMP_Text LevelIntroText;
     public bool NewLevelShowing;
@@ -25,9 +20,7 @@ public class GJ24LevelManager : MonoBehaviour
     GJ24ScoreManager _scoreManager;
     [SerializeField]
     GJ24GameOverManager _gameOverManager;
-    int _oldTime;
-
-
+    int _oldTime; // Used for a string optimization (i.e. not formatting strings every frame)
 
     void Start()
     {
@@ -38,12 +31,8 @@ public class GJ24LevelManager : MonoBehaviour
         LevelIntroText.text = $"Level {CurrentLevel} \nShrink/Grow quota: {RequiredScore}";
         LevelIntroText.gameObject.SetActive(true);
         CurrentLevelText.gameObject.SetActive(false);
-        //_requiredScoreText.gameObject.SetActive(false);
         TimerText.gameObject.SetActive(false);
-        // Show new level text with details
     }
-
-    // Update is called once per frame
     void Update()
     {
         if (!_gameOverManager.GameOver)
@@ -58,8 +47,6 @@ public class GJ24LevelManager : MonoBehaviour
                     LevelIntroText.gameObject.SetActive(false);
                     CurrentLevelText.gameObject.SetActive(true);
                     CurrentLevelText.text = $"Level {CurrentLevel}";
-                    //_requiredScoreText.gameObject.SetActive(true);
-                    //_requiredScoreText.text = $"/ {RequiredScore}";
                     TimerText.gameObject.SetActive(true);
                     TimerText.text = $"Time left: {(int)_currentLevelTimer}";
                 }
@@ -73,6 +60,7 @@ public class GJ24LevelManager : MonoBehaviour
             {
                 if (_currentLevelTimer < 0.0f)
                 {
+                    // Level passed, show requirements of new level
                     if (_scoreManager.Score >= RequiredScore)
                     {
                         NewLevelShowing = true;
@@ -95,9 +83,9 @@ public class GJ24LevelManager : MonoBehaviour
                         LevelIntroText.text = $"Level {CurrentLevel} \nShrink/Grow Quota: {RequiredScore}";
                         _scoreManager.UpdateText();
                         CurrentLevelText.gameObject.SetActive(false);
-                        //_requiredScoreText.gameObject.SetActive(false);
                         TimerText.gameObject.SetActive(false);
                     }
+                    // Level failed, game over
                     else
                     {
                         print("NOT ENOUGH POINTS");
@@ -117,7 +105,6 @@ public class GJ24LevelManager : MonoBehaviour
             }
         }
     }
-
     public void AddTime(float time)
     {
         _currentLevelTimer += time;

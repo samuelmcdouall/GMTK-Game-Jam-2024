@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class GJ24FlyingHazardSpawner : MonoBehaviour
@@ -27,35 +25,36 @@ public class GJ24FlyingHazardSpawner : MonoBehaviour
         _spawnIntervalTimer = Random.Range(_minSpawnInterval, _maxSpawnInterval);
         _gameOverManager = GameObject.FindGameObjectWithTag("GameOverManager").GetComponent<GJ24GameOverManager>();
     }
-
-    // Update is called once per frame
     void Update()
     {
-
         if (!_gameOverManager.GameOver)
         {
             if (_spawnIntervalTimer < 0.0f)
             {
-                _spawnIntervalTimer = Random.Range(_minSpawnInterval, _maxSpawnInterval);
-                int rand = Random.Range(1, 8);
-                Vector3 startingPos = new Vector3(transform.position.x, Random.Range(_lowestSpawnYValue, _highestSpawnYValue), transform.position.z);
-                if (rand == 1) // Lower chance to spawn jetplane as its harder to avoid
-                {
-                    Instantiate(_jetPlane, startingPos, _jetPlane.transform.rotation);
-                }
-                else if (rand <= 4)
-                {
-                    Instantiate(_biPlane, startingPos, _biPlane.transform.rotation);
-                }
-                else
-                {
-                    Instantiate(_helicopter, startingPos, _helicopter.transform.rotation);
-                }
+                SpawnRandomFlyingHazard();
             }
             else
             {
                 _spawnIntervalTimer -= Time.deltaTime;
             }
+        }
+    }
+    void SpawnRandomFlyingHazard()
+    {
+        _spawnIntervalTimer = Random.Range(_minSpawnInterval, _maxSpawnInterval);
+        int rand = Random.Range(1, 8);
+        Vector3 startingPos = new Vector3(transform.position.x, Random.Range(_lowestSpawnYValue, _highestSpawnYValue), transform.position.z);
+        if (rand == 1) // Lower chance to spawn jetplane as its harder to avoid
+        {
+            Instantiate(_jetPlane, startingPos, _jetPlane.transform.rotation);
+        }
+        else if (rand <= 4)
+        {
+            Instantiate(_biPlane, startingPos, _biPlane.transform.rotation);
+        }
+        else
+        {
+            Instantiate(_helicopter, startingPos, _helicopter.transform.rotation);
         }
     }
 }

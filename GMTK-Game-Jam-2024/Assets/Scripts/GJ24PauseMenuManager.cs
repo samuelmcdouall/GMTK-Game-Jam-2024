@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -14,6 +12,7 @@ public class GJ24PauseMenuManager : MonoBehaviour
     GJ24SFXManager _sfxManager;
     [SerializeField]
     GameObject _pausedMenu;
+
     void Start()
     {
         _sfxManager.SFXVolume = PlayerPrefs.GetFloat("SFXVolume", 0.5f);
@@ -21,8 +20,6 @@ public class GJ24PauseMenuManager : MonoBehaviour
         _sfxManager.MusicAS.volume = PlayerPrefs.GetFloat("MusicVolume", 0.25f);
         _musicSlider.value = _sfxManager.MusicAS.volume;
     }
-
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -39,14 +36,11 @@ public class GJ24PauseMenuManager : MonoBehaviour
             }
         }
     }
-
     public void OnChangeSFXValue()
     {
         PlayerPrefs.SetFloat("SFXVolume", _sfxSlider.value);
         PlayerPrefs.Save();
         _sfxManager.SFXVolume = _sfxSlider.value;
-
-
     }
     public void OnChangeMusicValue()
     {
@@ -54,7 +48,6 @@ public class GJ24PauseMenuManager : MonoBehaviour
         PlayerPrefs.Save();
         _sfxManager.MusicAS.volume = _musicSlider.value;
     }
-
     public void QuitButton()
     {
         SceneManager.LoadScene("MainMenuScene");

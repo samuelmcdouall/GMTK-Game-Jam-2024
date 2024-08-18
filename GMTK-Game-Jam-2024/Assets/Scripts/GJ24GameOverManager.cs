@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -7,26 +5,22 @@ using UnityEngine.SceneManagement;
 public class GJ24GameOverManager : MonoBehaviour
 {
     public bool GameOver;
-    [SerializeField] GameObject _explosionFX;
-    [SerializeField] AudioClip _explosionSFX;
-    [SerializeField] GameObject _player;
-    [SerializeField] GJ24SFXManager _sfxManager;
-    [SerializeField] GameObject _gameOverScreen;
-    [SerializeField] TMP_Text _gameOverText;
-    [SerializeField] GJ24LevelManager _levelManager;
-    [SerializeField] GJ24ScoreManager _scoreManager;
-
-
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    [SerializeField]
+    GameObject _explosionFX;
+    [SerializeField]
+    AudioClip _explosionSFX;
+    [SerializeField]
+    GameObject _player;
+    [SerializeField]
+    GJ24SFXManager _sfxManager;
+    [SerializeField]
+    GameObject _gameOverScreen;
+    [SerializeField]
+    TMP_Text _gameOverText;
+    [SerializeField]
+    GJ24LevelManager _levelManager;
+    [SerializeField]
+    GJ24ScoreManager _scoreManager;
 
     public void TriggerGameOver(bool destroyed) // false = ran out of time
     {
@@ -34,12 +28,7 @@ public class GJ24GameOverManager : MonoBehaviour
         {
             print("GAME OVER");
             GameOver = true;
-            _levelManager.LevelIntroText.gameObject.SetActive(false);
-            _levelManager.CurrentLevelText.gameObject.SetActive(false);
-            _levelManager.TimerText.gameObject.SetActive(false);
-            _scoreManager.ScoreText.gameObject.SetActive(false);
-            _scoreManager.NumShrunkObjectsText.gameObject.SetActive(false);
-            _scoreManager.NumGrownObjectsText.gameObject.SetActive(false);
+            DisableUI();
             Instantiate(_explosionFX, _player.transform.position, Quaternion.identity);
             _sfxManager.PlaySound(_explosionSFX, 1.0f);
             _sfxManager.MusicAS.Stop();
@@ -62,12 +51,19 @@ public class GJ24GameOverManager : MonoBehaviour
             Destroy(_player);
         }
     }
-
+    void DisableUI()
+    {
+        _levelManager.LevelIntroText.gameObject.SetActive(false);
+        _levelManager.CurrentLevelText.gameObject.SetActive(false);
+        _levelManager.TimerText.gameObject.SetActive(false);
+        _scoreManager.ScoreText.gameObject.SetActive(false);
+        _scoreManager.NumShrunkObjectsText.gameObject.SetActive(false);
+        _scoreManager.NumGrownObjectsText.gameObject.SetActive(false);
+    }
     void ShowGameOverScreen()
     {
         _gameOverScreen.SetActive(true);
     }
-
     public void QuitButton()
     {
         SceneManager.LoadScene("MainMenuScene");

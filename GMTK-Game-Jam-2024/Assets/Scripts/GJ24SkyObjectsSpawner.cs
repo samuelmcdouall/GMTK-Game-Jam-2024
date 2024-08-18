@@ -1,8 +1,7 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GJ24SkyObjectsSpawner : MonoBehaviour
+public class GJ24SkyObjectsSpawner : MonoBehaviour // This is used on two separate instances for both spawning clouds in the environment and power ups
 {
     [SerializeField]
     List<GameObject> _skyObjects;
@@ -23,23 +22,25 @@ public class GJ24SkyObjectsSpawner : MonoBehaviour
         _spawnIntervalTimer = Random.Range(_minSpawnInterval, _maxSpawnInterval);
         _gameOverManager = GameObject.FindGameObjectWithTag("GameOverManager").GetComponent<GJ24GameOverManager>();
     }
-
-    // Update is called once per frame
     void Update()
     {
         if (!_gameOverManager.GameOver)
         {
             if (_spawnIntervalTimer < 0.0f)
             {
-                _spawnIntervalTimer = Random.Range(_minSpawnInterval, _maxSpawnInterval);
-                int rand = Random.Range(0, _skyObjects.Count);
-                Vector3 startingPos = new Vector3(transform.position.x, Random.Range(_lowestSpawnYValue, _highestSpawnYValue), transform.position.z);
-                Instantiate(_skyObjects[rand], startingPos, _skyObjects[rand].transform.rotation);
+                SpawnRandomSkyObject();
             }
             else
             {
                 _spawnIntervalTimer -= Time.deltaTime;
             }
         }
+    }
+    void SpawnRandomSkyObject()
+    {
+        _spawnIntervalTimer = Random.Range(_minSpawnInterval, _maxSpawnInterval);
+        int rand = Random.Range(0, _skyObjects.Count);
+        Vector3 startingPos = new Vector3(transform.position.x, Random.Range(_lowestSpawnYValue, _highestSpawnYValue), transform.position.z);
+        Instantiate(_skyObjects[rand], startingPos, _skyObjects[rand].transform.rotation);
     }
 }

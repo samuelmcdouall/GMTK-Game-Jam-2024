@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -19,23 +16,17 @@ public class GJ24SizeableObject : MonoBehaviour
     GameObject _scoreTextObject;
     [SerializeField]
     Transform _scoreTextObjectPos;
-
-    GameObject _scoreManagerObject;
     GJ24ScoreManager _scoreManager;
     GJ24GameOverManager _gameOverManager;
-
     Outline _outline;
-    // Start is called before the first frame update
+
     void Start()
     {
         _groundLevel = GameObject.FindGameObjectWithTag("GroundLevel").transform.position.y;
-        _scoreManagerObject = GameObject.FindGameObjectWithTag("ScoreManager");
-        _scoreManager = _scoreManagerObject.GetComponent<GJ24ScoreManager>();
+        _scoreManager = GameObject.FindGameObjectWithTag("ScoreManager").GetComponent<GJ24ScoreManager>();
         _gameOverManager = GameObject.FindGameObjectWithTag("GameOverManager").GetComponent<GJ24GameOverManager>();
         _outline = GetComponent<Outline>();
     }
-
-    // Update is called once per frame
     public virtual void Update()
     {
         if (!_gameOverManager.GameOver)
@@ -51,22 +42,19 @@ public class GJ24SizeableObject : MonoBehaviour
             }
         }
     }
-
     public void GrowObject()
     {
         transform.localScale *= 2.0f;
         CurrentSizeStep++;
 
-        if (CurrentSizeStep >= TargetSizeStep && gameObject.tag == "GrowObject" && !_metTargetSize) 
+        if (CurrentSizeStep >= TargetSizeStep && gameObject.tag == "GrowObject" && !_metTargetSize)
         {
             _metTargetSize = true;
             if (_outline)
             {
                 _outline.OutlineColor = Color.green;
             }
-            GameObject scoreText = Instantiate(_scoreTextObject, _scoreTextObjectPos.position, _scoreTextObject.transform.rotation);
-            scoreText.GetComponent<TMP_Text>().text = "+" + ScoreValue + "!";
-            _scoreManager.IncreaseScore(ScoreValue, false);
+            SpawnScoreUI(false);
         }
     }
     public void ShrinkObject()
@@ -80,13 +68,16 @@ public class GJ24SizeableObject : MonoBehaviour
             {
                 _outline.OutlineColor = Color.green;
             }
-            GameObject scoreText = Instantiate(_scoreTextObject, _scoreTextObjectPos.position, _scoreTextObject.transform.rotation);
-            scoreText.GetComponent<TMP_Text>().text = "+" + ScoreValue + "!";
-            _scoreManager.IncreaseScore(ScoreValue, true);
+            SpawnScoreUI(true);
         }
     }
-
-    public void OnTriggerEnter(Collider other)
+    void SpawnScoreUI(bool shrunkObject)
+    {
+        GameObject scoreText = Instantiate(_scoreTextObject, _scoreTextObjectPos.position, _scoreTextObject.transform.rotation);
+        scoreText.GetComponent<TMP_Text>().text = "+" + ScoreValue + "!";
+        _scoreManager.IncreaseScore(ScoreValue, shrunkObject);
+    }
+    void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player" && !other.gameObject.GetComponent<GJ24PlayerMovement>().ShieldOn)
         {
