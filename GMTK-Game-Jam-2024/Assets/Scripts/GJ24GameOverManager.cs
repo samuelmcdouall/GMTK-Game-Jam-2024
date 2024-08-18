@@ -13,6 +13,7 @@ public class GJ24GameOverManager : MonoBehaviour
     [SerializeField] GJ24SFXManager _sfxManager;
     [SerializeField] GameObject _gameOverScreen;
     [SerializeField] TMP_Text _gameOverText;
+    [SerializeField] GJ24LevelManager _levelManager;
 
 
     void Start()
@@ -32,6 +33,7 @@ public class GJ24GameOverManager : MonoBehaviour
         {
             print("GAME OVER");
             GameOver = true;
+            _levelManager.LevelIntroText.gameObject.SetActive(false);
             Instantiate(_explosionFX, _player.transform.position, Quaternion.identity);
             _sfxManager.PlaySound(_explosionSFX, 1.0f);
             _sfxManager.MusicAS.Stop();
@@ -57,7 +59,7 @@ public class GJ24GameOverManager : MonoBehaviour
 
     public void QuitButton()
     {
-        // Quit to menu here
+        SceneManager.LoadScene("MainMenuScene");
     }
     public void TryAgainButton()
     {

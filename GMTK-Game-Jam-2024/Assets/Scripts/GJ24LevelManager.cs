@@ -18,8 +18,7 @@ public class GJ24LevelManager : MonoBehaviour
     //TMP_Text _requiredScoreText;
     [SerializeField]
     TMP_Text _timerText;
-    [SerializeField]
-    TMP_Text _levelIntroText;
+    public TMP_Text LevelIntroText;
     public bool NewLevelShowing;
     [SerializeField]
     float _newLevelShowingInterval;
@@ -36,8 +35,8 @@ public class GJ24LevelManager : MonoBehaviour
         _currentLevelTimer = _currentLevelDuration;
         NewLevelShowing = true;
         _newLevelShowingTimer = _newLevelShowingInterval;
-        _levelIntroText.text = $"Level {CurrentLevel} \nScore Needed: {RequiredScore}";
-        _levelIntroText.gameObject.SetActive(true);
+        LevelIntroText.text = $"Level {CurrentLevel} \nShrink/Grow quota: {RequiredScore}";
+        LevelIntroText.gameObject.SetActive(true);
         _currentLevelText.gameObject.SetActive(false);
         //_requiredScoreText.gameObject.SetActive(false);
         _timerText.gameObject.SetActive(false);
@@ -56,7 +55,7 @@ public class GJ24LevelManager : MonoBehaviour
                 {
                     NewLevelShowing = false;
                     _newLevelShowingTimer = _newLevelShowingInterval;
-                    _levelIntroText.gameObject.SetActive(false);
+                    LevelIntroText.gameObject.SetActive(false);
                     _currentLevelText.gameObject.SetActive(true);
                     _currentLevelText.text = $"Level {CurrentLevel}";
                     //_requiredScoreText.gameObject.SetActive(true);
@@ -78,7 +77,7 @@ public class GJ24LevelManager : MonoBehaviour
                     {
                         NewLevelShowing = true;
                         _currentLevelTimer = _currentLevelDuration;
-                        _levelIntroText.gameObject.SetActive(true);
+                        LevelIntroText.gameObject.SetActive(true);
                         CurrentLevel++;
                         if (RequiredScore <= 400)
                         {
@@ -88,7 +87,7 @@ public class GJ24LevelManager : MonoBehaviour
                         {
                             RequiredScore += 250;
                         }
-                        _levelIntroText.text = $"Level {CurrentLevel} \nShrink/Grow Quota: {RequiredScore}";
+                        LevelIntroText.text = $"Level {CurrentLevel} \nShrink/Grow Quota: {RequiredScore}";
                         _currentLevelText.gameObject.SetActive(false);
                         //_requiredScoreText.gameObject.SetActive(false);
                         _timerText.gameObject.SetActive(false);
