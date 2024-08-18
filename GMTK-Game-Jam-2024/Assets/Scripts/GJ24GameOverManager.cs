@@ -48,6 +48,11 @@ public class GJ24GameOverManager : MonoBehaviour
                 $"\n<color=#0000FF>Grown Objects: {_scoreManager.NumGrownObjects}</color>" +
                 $"\n\nTry Again?";
             Invoke("ShowGameOverScreen", 2.0f);
+            if (_scoreManager.Score > PlayerPrefs.GetInt("HighScore", 0))
+            {
+                PlayerPrefs.SetInt("HighScore", _scoreManager.Score);
+                PlayerPrefs.Save();
+            }
             Destroy(_player);
         }
     }
