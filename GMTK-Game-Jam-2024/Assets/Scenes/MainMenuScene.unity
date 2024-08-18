@@ -1728,15 +1728,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1587450075670515061, guid: daca6f1ac91c594419000fc5f317d483, type: 3}
       propertyPath: m_LocalScale.x
-      value: 13.18
+      value: 13.599999
       objectReference: {fileID: 0}
     - target: {fileID: 1587450075670515061, guid: daca6f1ac91c594419000fc5f317d483, type: 3}
       propertyPath: m_LocalScale.y
-      value: 13.18
+      value: 13.599999
       objectReference: {fileID: 0}
     - target: {fileID: 1587450075670515061, guid: daca6f1ac91c594419000fc5f317d483, type: 3}
       propertyPath: m_LocalScale.z
-      value: 13.18
+      value: 13.599999
       objectReference: {fileID: 0}
     - target: {fileID: 1587450075670515061, guid: daca6f1ac91c594419000fc5f317d483, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2448,7 +2448,7 @@ MonoBehaviour:
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 1
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -3139,15 +3139,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1587450075670515061, guid: daca6f1ac91c594419000fc5f317d483, type: 3}
       propertyPath: m_LocalScale.x
-      value: 8
+      value: 11.75
       objectReference: {fileID: 0}
     - target: {fileID: 1587450075670515061, guid: daca6f1ac91c594419000fc5f317d483, type: 3}
       propertyPath: m_LocalScale.y
-      value: 8
+      value: 11.75
       objectReference: {fileID: 0}
     - target: {fileID: 1587450075670515061, guid: daca6f1ac91c594419000fc5f317d483, type: 3}
       propertyPath: m_LocalScale.z
-      value: 8
+      value: 11.75
       objectReference: {fileID: 0}
     - target: {fileID: 1587450075670515061, guid: daca6f1ac91c594419000fc5f317d483, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3196,6 +3196,10 @@ PrefabInstance:
     - target: {fileID: 2614601762690727942, guid: daca6f1ac91c594419000fc5f317d483, type: 3}
       propertyPath: m_Name
       value: PropGrowObject3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614601762690727942, guid: daca6f1ac91c594419000fc5f317d483, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1431067556792033236, guid: daca6f1ac91c594419000fc5f317d483, type: 3}
