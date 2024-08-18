@@ -1136,7 +1136,7 @@ GameObject:
   - component: {fileID: 253357791}
   - component: {fileID: 253357790}
   m_Layer: 5
-  m_Name: LevelInto
+  m_Name: LevelIntro
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1159,7 +1159,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 0, y: -310.3}
-  m_SizeDelta: {x: 740.1, y: 96.48}
+  m_SizeDelta: {x: 898.93, y: 96.48}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &253357790
 MonoBehaviour:
@@ -1181,7 +1181,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Level XX
+  m_text: 'Shrink/Grow Quota: XXXXX
 
     Score needed: XXXXXX'
   m_isRightToLeft: 0
@@ -3053,6 +3053,7 @@ MonoBehaviour:
   _sfxManager: {fileID: 963194233}
   _gameOverScreen: {fileID: 390344963}
   _gameOverText: {fileID: 362977381}
+  _levelManager: {fileID: 1113907098}
 --- !u!4 &812738161
 Transform:
   m_ObjectHideFlags: 0
@@ -4090,7 +4091,7 @@ MonoBehaviour:
   _currentLevelTimer: 0
   _currentLevelText: {fileID: 1304449919}
   _timerText: {fileID: 188523160}
-  _levelIntroText: {fileID: 253357790}
+  LevelIntroText: {fileID: 253357790}
   NewLevelShowing: 0
   _newLevelShowingInterval: 5
   _scoreManager: {fileID: 915814526}
@@ -6601,7 +6602,7 @@ GameObject:
   - component: {fileID: 2080877842}
   - component: {fileID: 2080877843}
   m_Layer: 0
-  m_Name: PlaneHazardSpawner
+  m_Name: FlyingHazardSpawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6636,6 +6637,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _biPlane: {fileID: 2611229125000672038, guid: 456b3a418f3a4614189f7d2651543c5b, type: 3}
   _jetPlane: {fileID: 366686296062843064, guid: 583220cc80f93f342a43f7592b65578b, type: 3}
+  _helicopter: {fileID: 193710719792255687, guid: fb18e66e4758687458740024e9ad7140, type: 3}
   _minSpawnInterval: 5
   _maxSpawnInterval: 15
   _spawnIntervalTimer: 0
