@@ -25,12 +25,14 @@ public class GJ24LevelManager : MonoBehaviour
     GJ24ScoreManager _scoreManager;
     [SerializeField]
     GJ24GameOverManager _gameOverManager;
+    int _oldTime;
 
 
 
     void Start()
     {
         _currentLevelTimer = _currentLevelDuration;
+        _oldTime = (int)_currentLevelDuration;
         NewLevelShowing = true;
         _newLevelShowingTimer = _newLevelShowingInterval;
         LevelIntroText.text = $"Level {CurrentLevel} \nShrink/Grow quota: {RequiredScore}";
@@ -75,6 +77,7 @@ public class GJ24LevelManager : MonoBehaviour
                     {
                         NewLevelShowing = true;
                         _currentLevelTimer = _currentLevelDuration;
+                        _oldTime = (int)_currentLevelDuration;
                         LevelIntroText.gameObject.SetActive(true);
                         CurrentLevel++;
                         if (RequiredScore <= 400)
@@ -105,7 +108,11 @@ public class GJ24LevelManager : MonoBehaviour
                 else
                 {
                     _currentLevelTimer -= Time.deltaTime;
-                    TimerText.text = $"Time left: {(int)_currentLevelTimer}";
+                    if (_oldTime != (int)_currentLevelTimer) // only show the second when updated, so not updating every frame
+                    {
+                        _oldTime = (int)_currentLevelTimer;
+                        TimerText.text = $"Time left: {(int)_currentLevelTimer}";
+                    }
                 }
             }
         }
