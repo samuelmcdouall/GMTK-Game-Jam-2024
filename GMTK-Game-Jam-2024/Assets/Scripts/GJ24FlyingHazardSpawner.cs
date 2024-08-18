@@ -37,13 +37,13 @@ public class GJ24FlyingHazardSpawner : MonoBehaviour
             if (_spawnIntervalTimer < 0.0f)
             {
                 _spawnIntervalTimer = Random.Range(_minSpawnInterval, _maxSpawnInterval);
-                int rand = Random.Range(0, 6);
+                int rand = Random.Range(1, 8);
                 Vector3 startingPos = new Vector3(transform.position.x, Random.Range(_lowestSpawnYValue, _highestSpawnYValue), transform.position.z);
-                if (rand == 0) // Lower chance to spawn jetplane as its harder to avoid
+                if (rand == 1) // Lower chance to spawn jetplane as its harder to avoid
                 {
                     Instantiate(_jetPlane, startingPos, _jetPlane.transform.rotation);
                 }
-                else if (rand <= 2)
+                else if (rand <= 4)
                 {
                     Instantiate(_biPlane, startingPos, _biPlane.transform.rotation);
                 }
