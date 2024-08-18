@@ -12,12 +12,10 @@ public class GJ24LevelManager : MonoBehaviour
     float _currentLevelDuration;
     [SerializeField]
     float _currentLevelTimer;
-    [SerializeField]
-    TMP_Text _currentLevelText;
+    public TMP_Text CurrentLevelText;
     //[SerializeField]
     //TMP_Text _requiredScoreText;
-    [SerializeField]
-    TMP_Text _timerText;
+    public TMP_Text TimerText;
     public TMP_Text LevelIntroText;
     public bool NewLevelShowing;
     [SerializeField]
@@ -37,9 +35,9 @@ public class GJ24LevelManager : MonoBehaviour
         _newLevelShowingTimer = _newLevelShowingInterval;
         LevelIntroText.text = $"Level {CurrentLevel} \nShrink/Grow quota: {RequiredScore}";
         LevelIntroText.gameObject.SetActive(true);
-        _currentLevelText.gameObject.SetActive(false);
+        CurrentLevelText.gameObject.SetActive(false);
         //_requiredScoreText.gameObject.SetActive(false);
-        _timerText.gameObject.SetActive(false);
+        TimerText.gameObject.SetActive(false);
         // Show new level text with details
     }
 
@@ -56,12 +54,12 @@ public class GJ24LevelManager : MonoBehaviour
                     NewLevelShowing = false;
                     _newLevelShowingTimer = _newLevelShowingInterval;
                     LevelIntroText.gameObject.SetActive(false);
-                    _currentLevelText.gameObject.SetActive(true);
-                    _currentLevelText.text = $"Level {CurrentLevel}";
+                    CurrentLevelText.gameObject.SetActive(true);
+                    CurrentLevelText.text = $"Level {CurrentLevel}";
                     //_requiredScoreText.gameObject.SetActive(true);
                     //_requiredScoreText.text = $"/ {RequiredScore}";
-                    _timerText.gameObject.SetActive(true);
-                    _timerText.text = $"Time left: {(int)_currentLevelTimer}";
+                    TimerText.gameObject.SetActive(true);
+                    TimerText.text = $"Time left: {(int)_currentLevelTimer}";
                 }
                 else
                 {
@@ -88,9 +86,9 @@ public class GJ24LevelManager : MonoBehaviour
                             RequiredScore += 250;
                         }
                         LevelIntroText.text = $"Level {CurrentLevel} \nShrink/Grow Quota: {RequiredScore}";
-                        _currentLevelText.gameObject.SetActive(false);
+                        CurrentLevelText.gameObject.SetActive(false);
                         //_requiredScoreText.gameObject.SetActive(false);
-                        _timerText.gameObject.SetActive(false);
+                        TimerText.gameObject.SetActive(false);
                     }
                     else
                     {
@@ -102,7 +100,7 @@ public class GJ24LevelManager : MonoBehaviour
                 else
                 {
                     _currentLevelTimer -= Time.deltaTime;
-                    _timerText.text = $"Time left: {(int)_currentLevelTimer}";
+                    TimerText.text = $"Time left: {(int)_currentLevelTimer}";
                 }
             }
         }

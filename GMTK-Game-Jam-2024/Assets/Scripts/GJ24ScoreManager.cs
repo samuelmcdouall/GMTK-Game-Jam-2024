@@ -5,12 +5,12 @@ using UnityEngine;
 
 public class GJ24ScoreManager : MonoBehaviour
 {
-    [SerializeField] TMP_Text _scoreText;
-    [SerializeField] TMP_Text _numShrunkObjectsText;
-    [SerializeField] TMP_Text _numGrownObjectsText;
+    public TMP_Text ScoreText;
+    public TMP_Text NumShrunkObjectsText;
+    public TMP_Text NumGrownObjectsText;
     public int Score;
-    [SerializeField] int _numShrunkObjects;
-    [SerializeField] int _numGrownObjects;
+    public int NumShrunkObjects;
+    public int NumGrownObjects;
     [SerializeField]
     GJ24LevelManager _levelManager;
 
@@ -31,18 +31,18 @@ public class GJ24ScoreManager : MonoBehaviour
         Score += score;
         if (shrunkObject)
         {
-            _numShrunkObjects++;
+            NumShrunkObjects++;
         }
         else
         {
-            _numGrownObjects++;
+            NumGrownObjects++;
         }
         UpdateText();
     }
     void UpdateText()
     {
-        _scoreText.text = $"Score: {Score} / {_levelManager.RequiredScore}";
-        _numShrunkObjectsText.text = "Shrunk objects: " + _numShrunkObjects;
-        _numGrownObjectsText.text = "Grown objects: " + _numGrownObjects;
+        ScoreText.text = $"Score: {Score} / {_levelManager.RequiredScore}";
+        NumShrunkObjectsText.text = "Shrunk objects: " + NumShrunkObjects;
+        NumGrownObjectsText.text = "Grown objects: " + NumGrownObjects;
     }
 }
