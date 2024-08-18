@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GJ24PlaneHazardSpawner : MonoBehaviour
+public class GJ24FlyingHazardSpawner : MonoBehaviour
 {
     [SerializeField]
     GameObject _biPlane;
     [SerializeField]
     GameObject _jetPlane;
+    [SerializeField]
+    GameObject _helicopter;
     [SerializeField]
     float _minSpawnInterval;
     [SerializeField]
@@ -35,15 +37,19 @@ public class GJ24PlaneHazardSpawner : MonoBehaviour
             if (_spawnIntervalTimer < 0.0f)
             {
                 _spawnIntervalTimer = Random.Range(_minSpawnInterval, _maxSpawnInterval);
-                int rand = Random.Range(0, 3);
+                int rand = Random.Range(0, 6);
                 Vector3 startingPos = new Vector3(transform.position.x, Random.Range(_lowestSpawnYValue, _highestSpawnYValue), transform.position.z);
                 if (rand == 0) // Lower chance to spawn jetplane as its harder to avoid
                 {
-                    Instantiate(_jetPlane, startingPos, _biPlane.transform.rotation);
+                    Instantiate(_jetPlane, startingPos, _jetPlane.transform.rotation);
+                }
+                else if (rand <= 2)
+                {
+                    Instantiate(_biPlane, startingPos, _biPlane.transform.rotation);
                 }
                 else
                 {
-                    Instantiate(_biPlane, startingPos, _biPlane.transform.rotation);
+                    Instantiate(_helicopter, startingPos, _helicopter.transform.rotation);
                 }
             }
             else
