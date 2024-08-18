@@ -88,7 +88,7 @@ public class GJ24LevelManager : MonoBehaviour
                         {
                             RequiredScore += 250;
                         }
-                        _levelIntroText.text = $"Level {CurrentLevel} \nScore Needed: {RequiredScore}";
+                        _levelIntroText.text = $"Level {CurrentLevel} \nShrink/Grow Quota: {RequiredScore}";
                         _currentLevelText.gameObject.SetActive(false);
                         //_requiredScoreText.gameObject.SetActive(false);
                         _timerText.gameObject.SetActive(false);
