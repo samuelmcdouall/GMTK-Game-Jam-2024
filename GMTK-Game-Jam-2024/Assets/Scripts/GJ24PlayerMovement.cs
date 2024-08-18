@@ -14,6 +14,10 @@ public class GJ24PlayerMovement : MonoBehaviour
     float _lowerYPosLimit;
     [SerializeField]
     float _upperYPosLimit;
+    public bool ShieldOn;
+    [SerializeField]
+    GameObject _shieldFX;
+    float _shieldTimer;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +30,19 @@ public class GJ24PlayerMovement : MonoBehaviour
         Vector3 direction = GetInput();
         direction = LimitDirectionIfAtEdges(direction);
         transform.position += direction.normalized * Time.deltaTime * _playerSpeed;
+
+        if (ShieldOn)
+        {
+            if (_shieldTimer < 0.0f)
+            {
+                ShieldOn = false;
+                _shieldFX.SetActive(false);
+            }
+            else
+            {
+                _shieldTimer -= Time.deltaTime;
+            }
+        }
 
 
     }
@@ -74,5 +91,12 @@ public class GJ24PlayerMovement : MonoBehaviour
         }
 
         return direction;
+    }
+
+    public void ShieldOnForSeconds(float time)
+    {
+        _shieldFX.SetActive(true);
+        _shieldTimer = time;
+        ShieldOn = true;
     }
 }

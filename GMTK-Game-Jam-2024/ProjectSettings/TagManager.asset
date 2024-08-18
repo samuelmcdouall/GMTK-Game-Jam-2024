@@ -15,6 +15,7 @@ TagManager:
   - ScoreManager
   - FxTemporaire
   - GameOverManager
+  - LevelManager
   layers:
   - Default
   - TransparentFX

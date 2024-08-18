@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GJ24CloudSpawner : MonoBehaviour
+public class GJ24SkyObjectsSpawner : MonoBehaviour
 {
     [SerializeField]
-    List<GameObject> _clouds;
+    List<GameObject> _skyObjects;
     [SerializeField]
     float _minSpawnInterval;
     [SerializeField]
@@ -32,9 +32,9 @@ public class GJ24CloudSpawner : MonoBehaviour
             if (_spawnIntervalTimer < 0.0f)
             {
                 _spawnIntervalTimer = Random.Range(_minSpawnInterval, _maxSpawnInterval);
-                int rand = Random.Range(0, _clouds.Count);
+                int rand = Random.Range(0, _skyObjects.Count);
                 Vector3 startingPos = new Vector3(transform.position.x, Random.Range(_lowestSpawnYValue, _highestSpawnYValue), transform.position.z);
-                Instantiate(_clouds[rand], startingPos, _clouds[rand].transform.rotation);
+                Instantiate(_skyObjects[rand], startingPos, _skyObjects[rand].transform.rotation);
             }
             else
             {

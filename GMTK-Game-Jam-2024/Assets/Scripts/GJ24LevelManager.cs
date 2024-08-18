@@ -105,4 +105,10 @@ public class GJ24LevelManager : MonoBehaviour
             }
         }
     }
+
+    public void AddTime(float time)
+    {
+        _currentLevelTimer += time;
+        TimerText.text = $"Time left: {(int)_currentLevelTimer}";
+    }
 }

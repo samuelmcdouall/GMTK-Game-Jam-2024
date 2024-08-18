@@ -22,7 +22,7 @@ public class GJ24TankProjectile : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player")
+        if (other.tag == "Player" && !other.gameObject.GetComponent<GJ24PlayerMovement>().ShieldOn)
         {
             _gameOverManager.TriggerGameOver(true);
             Destroy(gameObject);
