@@ -81,11 +81,16 @@ public class GJ24LevelManager : MonoBehaviour
                         {
                             RequiredScore += 100;
                         }
-                        else
+                        else if (RequiredScore <= 1250)
                         {
                             RequiredScore += 250;
                         }
+                        else
+                        {
+                            RequiredScore += 500;
+                        }
                         LevelIntroText.text = $"Level {CurrentLevel} \nShrink/Grow Quota: {RequiredScore}";
+                        _scoreManager.UpdateText();
                         CurrentLevelText.gameObject.SetActive(false);
                         //_requiredScoreText.gameObject.SetActive(false);
                         TimerText.gameObject.SetActive(false);

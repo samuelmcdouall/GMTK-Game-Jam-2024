@@ -39,7 +39,7 @@ public class GJ24ScoreManager : MonoBehaviour
         }
         UpdateText();
     }
-    void UpdateText()
+    public void UpdateText()
     {
         ScoreText.text = $"Score: {Score} / {_levelManager.RequiredScore}";
         NumShrunkObjectsText.text = "Shrunk objects: " + NumShrunkObjects;

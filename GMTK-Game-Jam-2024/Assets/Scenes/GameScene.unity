@@ -3894,7 +3894,7 @@ MonoBehaviour:
   _skyObjects:
   - {fileID: 4448962009041618718, guid: 867c2ec070a3b7f4bb8bcd0464d6e8cb, type: 3}
   - {fileID: 1463611542999139337, guid: 76e6ebab5196976498d0f00c886a748a, type: 3}
-  _minSpawnInterval: 60
+  _minSpawnInterval: 45
   _maxSpawnInterval: 120
   _spawnIntervalTimer: 0
   _lowestSpawnYValue: 0
