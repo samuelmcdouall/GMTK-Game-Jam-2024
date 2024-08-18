@@ -1025,7 +1025,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 0, y: -75}
-  m_SizeDelta: {x: 485.3999, y: 50}
+  m_SizeDelta: {x: 528.67, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &188523160
 MonoBehaviour:
@@ -1047,7 +1047,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Timer: XX'
+  m_text: 'Time left: XX'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 64ef74e3556bd564a81ac8de32f12bbb, type: 2}
   m_sharedMaterial: {fileID: 9130162511289998690, guid: 64ef74e3556bd564a81ac8de32f12bbb, type: 2}
